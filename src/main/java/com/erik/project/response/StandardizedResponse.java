@@ -1,14 +1,14 @@
-package com.erik.projeto.response;
+package com.erik.project.response;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 //-----Class that serves to be the answer of my services of rest. Serve as a default answer.-----//
-public class StandardizedResponse<ClasseRecebida> {
+public class StandardizedResponse<ReceivedClass> {
 
 	
-	private ClasseRecebida conteudoDoResponse;
+	private ReceivedClass responseContent;
 	private List<String>   errors;
 
 	
@@ -18,18 +18,15 @@ public class StandardizedResponse<ClasseRecebida> {
 	
 	//-------------------------Getters and Setters----------------------//	
 
-	public ClasseRecebida getConteudoDoResponse() {
+	public ReceivedClass getConteudoDoResponse() {
 		
-		return conteudoDoResponse;
+		return responseContent;
 	}
 
-	public void setConteudoDoResponse(ClasseRecebida conteudoDoResponse) {
+	public void setConteudoDoResponse(ReceivedClass responseContent) {
 		
-		this.conteudoDoResponse = conteudoDoResponse;
+		this.responseContent = responseContent;
 	}
-	
-	
-	
 	
 	
 	public List<String> getErrors() {
