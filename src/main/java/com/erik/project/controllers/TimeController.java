@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.erik.project.dto.TimestampDto;
 import com.erik.project.response.StandardizedResponse;
 
@@ -38,7 +37,7 @@ public class TimeController {
         TimestampDto timestampDto = new TimestampDto( timestamp );
 		//--
         
-		standardizedResponse.setConteudoDoResponse( timestampDto );
+		standardizedResponse.setResponseContent( timestampDto );
 		
 		return ResponseEntity.ok().body( standardizedResponse );
 	}

@@ -7,8 +7,8 @@ import java.util.List;
 //-----Class that serves to be the answer of my services of rest. Serve as a default answer.-----//
 public class StandardizedResponse<ReceivedClass> {
 
-	
 	private ReceivedClass responseContent;
+	
 	private List<String>   errors;
 
 	
@@ -18,12 +18,12 @@ public class StandardizedResponse<ReceivedClass> {
 	
 	//-------------------------Getters and Setters----------------------//	
 
-	public ReceivedClass getConteudoDoResponse() {
+	public ReceivedClass getResponseContent() {
 		
 		return responseContent;
 	}
 
-	public void setConteudoDoResponse(ReceivedClass responseContent) {
+	public void setResponseContent(ReceivedClass responseContent) {
 		
 		this.responseContent = responseContent;
 	}
