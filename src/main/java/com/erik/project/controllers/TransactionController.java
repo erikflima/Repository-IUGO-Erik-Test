@@ -48,7 +48,7 @@ public class TransactionController {
 
 	@PostMapping 
 	public ResponseEntity< StandardizedResponse<TransactionDtoResponse> > transactionRecording( @Valid @RequestBody TransactionDto transactionDto,
-			                                                                                                        BindingResult  resultadoDaValidacao ) throws NoSuchAlgorithmException {
+			                                                                                                        BindingResult  bindingResult ) throws NoSuchAlgorithmException {
 		
 		log.info("\nEndpoint: /api/test-iugo/transaction");
 
@@ -57,9 +57,9 @@ public class TransactionController {
 		//--
 				
 		//Checking the validation of input data made automatically by Hibernate, based on the annotations made in the class.
-		if ( resultadoDaValidacao.hasErrors() ) {
+		if ( bindingResult.hasErrors() ) {
 			
-			List<ObjectError> errorlist = resultadoDaValidacao.getAllErrors();
+			List<ObjectError> errorlist = bindingResult.getAllErrors();
 			
 			
 			for( ObjectError auxiliary : errorlist  ){
@@ -108,7 +108,7 @@ public class TransactionController {
 	
 	@PostMapping("/transactionStats")
 	public ResponseEntity< StandardizedResponse<TransactionStatsDtoResponse> > transactionDataQuerying( @Valid @RequestBody UserDto        userDto,
-			                                                                                                                BindingResult  resultadoDaValidacao ) throws NoSuchAlgorithmException {
+			                                                                                                                BindingResult  bindingResult ) throws NoSuchAlgorithmException {
 		
 		log.info("\nEndpoint: /api/test-iugo/transaction/transactionStats");
 
@@ -118,9 +118,9 @@ public class TransactionController {
 		//--
 		
 		//Checking the validation of input data made automatically by Hibernate, based on the annotations made in the class.
-		if ( resultadoDaValidacao.hasErrors() ) {
+		if ( bindingResult.hasErrors() ) {
 			
-			List<ObjectError> errorlist = resultadoDaValidacao.getAllErrors();
+			List<ObjectError> errorlist = bindingResult.getAllErrors();
 			
 			
 			for( ObjectError auxiliary : errorlist  ){
@@ -161,23 +161,11 @@ public class TransactionController {
 		
 		return ResponseEntity.ok().body( standardizedResponse );
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//------------------------------------------------------------//
-	
+
+
 	private Transaction convertTransactionDtoToTransaction( TransactionDto transactionDto, User user ) {
 
 		Transaction transaction = new Transaction();
